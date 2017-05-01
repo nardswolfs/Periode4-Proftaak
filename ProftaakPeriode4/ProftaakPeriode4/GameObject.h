@@ -1,7 +1,8 @@
 ﻿#pragma once
 
-class GameObject
-{
-public:
+class GameObject {
+	public:
+		GameObject();
+		void update(int timeDiff);
 	
 };
