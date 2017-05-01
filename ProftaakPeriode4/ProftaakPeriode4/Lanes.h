@@ -6,7 +6,7 @@
 class Lane : public GameObject
 {
 public:
-	Lane(std::vector<GLfloat[3]> vertices);
+	Lane(std::vector<Matrix3GLf> vertices);
 
 	// Add a GameObject to the lane
 	// @param GameObject *: The pointer to the gameObject wich will be added to the lane
