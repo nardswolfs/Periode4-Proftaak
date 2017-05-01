@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 
 class Lane
 {
@@ -15,13 +16,13 @@ public:
 	// @return bool: true if the object was succesfully removed
 	bool removeObject();
 private:
-
+//	std::vector<GameObject>
 };
 
 class Lanes
 {
 public:
-	Lanes(Lane lanes[], int count);
+	Lanes(Lane * lanes, int count);
 
 	void update();
 
