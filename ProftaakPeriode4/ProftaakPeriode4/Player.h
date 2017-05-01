@@ -3,6 +3,6 @@
 
 class Player : public GameObject {
 	public:
-		Player(int laneIndex);
+		Player(std::vector<Matrix3GLf> vertices, int laneIndex);
 		int _laneIndex;
 };
