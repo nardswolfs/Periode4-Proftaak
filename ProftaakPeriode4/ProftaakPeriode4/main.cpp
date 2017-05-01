@@ -6,9 +6,8 @@
 
 void Test()
 {
-	Lane lanesList[] = {Lane(),Lane(),Lane()};
 
-	Lanes lanes = Lanes(lanesList, sizeof(lanesList));
+	Lanes lanes = Lanes(3);
 }
 
 int main(int argv, char* arcv[]) {
