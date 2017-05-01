@@ -8,6 +8,5 @@ class Model {
 		Model();
 
 		std::vector<Player> _players;
-		void initModel();
 		void update(int deltaTime);
 };

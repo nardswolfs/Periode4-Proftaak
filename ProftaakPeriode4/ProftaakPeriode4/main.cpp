@@ -3,6 +3,7 @@
 #include "Lanes.h"
 
 #include <GL\freeglut.h>
+#include "Idle.h"
 
 void Test()
 {
@@ -11,14 +12,16 @@ void Test()
 }
 
 int main(int argc, char* argv[]) {
-	Model model = Model();
-	View view = View(&model);
-
 	Test();
 
 	glutInit(&argc, argv);
-	view.initDisplay(argc, argv);
-	model.initModel();
+
+	Model model = Model();
+	View view = View(&model);
+
+	glutDisplayFunc(window);
+	glutReshapeFunc(reshape);
+	glutIdleFunc(idle);
 
 	glutMainLoop();
 	return 0;
