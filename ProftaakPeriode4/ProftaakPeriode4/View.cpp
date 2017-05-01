@@ -3,4 +3,7 @@
 View::View(Model model)
 {
 	_model = model;
+
+	
+
 }
