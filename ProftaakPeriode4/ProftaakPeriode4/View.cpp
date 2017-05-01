@@ -2,9 +2,12 @@
 
 View::View(Model * model)
 {
-	_model = model;
+	_modelPtr = model;
 
-	GLuint _skybox[6] = {1, 2, 3, 4, 5, 6};
+	GLuint textureID;
+	glGenTextures(1, &textureID);
+
+	GLuint _skybox[6] = { 0x8515, 0x8516, 0x8517, 0x8518, 0x8519, 0x851A};
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
@@ -30,7 +33,7 @@ View::View(Model * model)
 	glColor4f(1, 1, 1, 1);
 
 	// Render the front quad
-	glBindTexture(GL_TEXTURE_2D, _skybox[0]);
+	glBindTexture(GL_TEXTURE_2D, textureID);
 	glBegin(GL_QUADS);
 	glTexCoord2f(0, 0); glVertex3f(0.5f, -0.5f, -0.5f);
 	glTexCoord2f(1, 0); glVertex3f(-0.5f, -0.5f, -0.5f);
