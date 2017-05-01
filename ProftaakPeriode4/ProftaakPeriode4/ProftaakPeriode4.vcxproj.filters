@@ -48,15 +48,6 @@
     <ClCompile Include="View.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
-    <ClCompile Include="Display.cpp">
-      <Filter>Source Files\View</Filter>
-    </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>Source Files\View</Filter>
-    </ClCompile>
-    <ClCompile Include="Idle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Input.cpp">
       <Filter>Source Files\Control</Filter>
     </ClCompile>
@@ -79,15 +70,6 @@
     </ClInclude>
     <ClInclude Include="View.h">
       <Filter>Header Files\View</Filter>
-    </ClInclude>
-    <ClInclude Include="Display.h">
-      <Filter>Header Files\View</Filter>
-    </ClInclude>
-    <ClInclude Include="Window.h">
-      <Filter>Header Files\View</Filter>
-    </ClInclude>
-    <ClInclude Include="Idle.h">
-      <Filter>Header Files\Model</Filter>
     </ClInclude>
     <ClInclude Include="Input.h">
       <Filter>Header Files\Control</Filter>
