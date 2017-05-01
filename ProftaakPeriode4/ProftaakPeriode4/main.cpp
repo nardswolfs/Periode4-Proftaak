@@ -10,13 +10,11 @@ void Test()
 	Lanes lanes = Lanes(3);
 }
 
-int main(int argv, char* arcv[]) {
+int main(int argc, char* argv[]) {
 	Model model = Model();
 	View view = View(&model);
 
 	Test();
-
-	View view = View(model);
 
 	glutInit(&argc, argv);
 	view.initDisplay(argc, argv);

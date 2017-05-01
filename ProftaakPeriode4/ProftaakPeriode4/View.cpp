@@ -2,7 +2,7 @@
 
 View::View(Model * model)
 {
-	_model = model;
+	_modelPtr = model;
 }
 
 void View::initDisplay(int argc, char* argv[])
@@ -14,13 +14,4 @@ void View::initDisplay(int argc, char* argv[])
 
 	glutDisplayFunc(window);
 	glutReshapeFunc(reshape);
-
-	//glutKeyboardFunc(keyboard);
-	//glutSpecialFunc(sDownKeyboard);
-	//glutSpecialUpFunc(sUpKeyboard);
-
-
-
-}
-	_modelPtr = model;
 }
