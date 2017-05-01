@@ -25,6 +25,12 @@
     <Filter Include="Source Files\View">
       <UniqueIdentifier>{3f894ff1-3c57-4b97-a2b2-983619b3cc74}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Control">
+      <UniqueIdentifier>{ab53cfb8-0cb6-42c3-a243-21f12aff82f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Control">
+      <UniqueIdentifier>{7bd3fbee-4304-4bac-b28c-f6c2d8164ca8}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Header Files\GameObjects">
       <UniqueIdentifier>{41587ca3-bb27-4dea-9929-b94c5cc3e50d}</UniqueIdentifier>
     </Filter>
@@ -41,6 +47,18 @@
     </ClCompile>
     <ClCompile Include="View.cpp">
       <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="Display.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="Idle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Source Files\Control</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>Source Files\Model</Filter>
@@ -61,6 +79,18 @@
     </ClInclude>
     <ClInclude Include="View.h">
       <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="Display.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="Idle.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Header Files\Control</Filter>
     </ClInclude>
     <ClInclude Include="Lanes.h">
       <Filter>Header Files\Model</Filter>
