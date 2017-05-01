@@ -1,6 +1,6 @@
 #include "View.h"
 
-View::View(Model model)
+View::View(Model * model)
 {
 	_model = model;
 }
@@ -21,4 +21,6 @@ void View::initDisplay(int argc, char* argv[])
 
 
 
+}
+	_modelPtr = model;
 }

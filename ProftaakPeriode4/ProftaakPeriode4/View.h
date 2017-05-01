@@ -5,8 +5,9 @@
 
 class View {
 	public:
+		View(Model * model);
 		View(Model model);
 		void initDisplay(int argc, char* argv[]);
 	private:
-		Model _model;
+		Model * _modelPtr;
 };

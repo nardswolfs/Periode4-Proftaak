@@ -6,7 +6,7 @@ Model::Model()
 {
 }
 
-void Model::update(int deltaTime)
+void Model::update(int timeDiff)
 {
 	// todo add logics for update
 }
