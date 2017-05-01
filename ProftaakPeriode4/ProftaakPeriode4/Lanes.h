@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include "GameObject.h"
 
 class Lane
 {
@@ -16,7 +17,7 @@ public:
 	// @return bool: true if the object was succesfully removed
 	bool removeObject();
 private:
-//	std::vector<GameObject>
+	std::vector<GameObject> _gameObjects; // List of pointers to the every GameObject on the lane
 };
 
 class Lanes
