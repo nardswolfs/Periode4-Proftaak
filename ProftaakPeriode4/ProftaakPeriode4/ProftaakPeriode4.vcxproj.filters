@@ -36,6 +36,9 @@
     <ClCompile Include="View.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
+    <ClCompile Include="Lanes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Model.h">
@@ -43,6 +46,9 @@
     </ClInclude>
     <ClInclude Include="View.h">
       <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="Lanes.h">
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
