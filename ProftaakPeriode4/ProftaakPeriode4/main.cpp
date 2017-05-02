@@ -3,23 +3,32 @@
 #include "Lanes.h"
 
 #include <GL\freeglut.h>
-#include "Idle.h"
 
-void Test()
+Model model;
+View view;
+
+void display()
 {
+	view.update();
+}
 
-	Lanes lanes = Lanes(3);
+void reshape(int w, int h)
+{
+	view.reshape(w, h);
+}
+
+void idle()
+{
+	
 }
 
 int main(int argc, char* argv[]) {
-	Test();
-
 	glutInit(&argc, argv);
 
-	Model model = Model();
-	View view = View(&model);
+	model = Model();
+	view = View(&model);
 
-	glutDisplayFunc(window);
+	glutDisplayFunc(display);
 	glutReshapeFunc(reshape);
 	glutIdleFunc(idle);
 

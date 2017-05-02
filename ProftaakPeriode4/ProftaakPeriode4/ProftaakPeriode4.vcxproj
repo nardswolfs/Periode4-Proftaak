@@ -145,8 +145,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Display.cpp" />
-    <ClCompile Include="Idle.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Lanes.cpp" />
@@ -154,19 +152,15 @@
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="View.cpp" />
-    <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Lanes.h" />
     <ClInclude Include="Matrix3GLf.h" />
-    <ClInclude Include="Display.h" />
-    <ClInclude Include="Idle.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="View.h" />
-    <ClInclude Include="Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
