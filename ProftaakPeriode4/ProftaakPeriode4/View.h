@@ -1,10 +1,9 @@
 #pragma once
 #include <GL\freeglut.h>
 #include "Model.h"
-#include <GL\freeglut.h>
 #include <iostream>
-using namespace std;
 #include "Window.h"
+using namespace std;
 
 class View {
 	public:

@@ -1,4 +1,5 @@
 #include "View.h"
+#include <GL/freeglut.h>
 
 View::View(Model * model)
 {
@@ -8,7 +9,6 @@ View::View(Model * model)
 	glutInitWindowSize(width, height);
 
 	glutCreateWindow("Cube_Runner");
-}
 
 	GLuint _skybox[6] = { 0x8515, 0x8516, 0x8517, 0x8518, 0x8519, 0x851A};
 
