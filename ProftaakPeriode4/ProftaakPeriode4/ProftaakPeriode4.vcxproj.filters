@@ -54,9 +54,6 @@
     <ClCompile Include="View.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>Source Files\Control</Filter>
-    </ClCompile>
     <ClCompile Include="Lanes.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
@@ -72,6 +69,9 @@
     <ClCompile Include="Vec.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Source Files\Control</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Model.h">
@@ -79,9 +79,6 @@
     </ClInclude>
     <ClInclude Include="View.h">
       <Filter>Header Files\View</Filter>
-    </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>Header Files\Control</Filter>
     </ClInclude>
     <ClInclude Include="Lanes.h">
       <Filter>Header Files\Model</Filter>
@@ -93,6 +90,15 @@
       <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="Vec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Header Files\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
