@@ -29,94 +29,7 @@ View::View()
 void drawCube()
 {
 	glColor3f(1, 0, 0);
-	glBegin(GL_QUADS);
-	//front
-	glVertex3f(-0.5, -0.5, -0.5);
-	glVertex3f(0.5, -0.5, -0.5);
-	glVertex3f(0.5, 0.5, -0.5);
-	glVertex3f(-0.5, 0.5, -0.5);
-
-	//left
-	glColor3f(0, 1, 0);
-	glVertex3f(-0.5, -0.5, 0.5);
-	glVertex3f(-0.5, -0.5, -0.5);
-	glVertex3f(-0.5, 0.5, -0.5);
-	glVertex3f(-0.5, 0.5, 0.5);
-
-	//back
-	glColor3f(1, 0, 0);
-	glVertex3f(-0.5, -0.5, 0.5);
-	glVertex3f(0.5, -0.5, 0.5);
-	glVertex3f(0.5, 0.5, 0.5);
-	glVertex3f(-0.5, 0.5, 0.5);
-
-	//right
-	glColor3f(0, 1, 0);
-	glVertex3f(0.5, -0.5, 0.5);
-	glVertex3f(0.5, -0.5, -0.5);
-	glVertex3f(0.5, 0.5, -0.5);
-	glVertex3f(0.5, 0.5, 0.5);
-
-	//top
-	glColor3f(0, 0, 1);
-	glVertex3f(-0.5, 0.5, -0.5);
-	glVertex3f(0.5, 0.5, -0.5);
-	glVertex3f(0.5, 0.5, 0.5);
-	glVertex3f(-0.5, 0.5, 0.5);
-
-	//bottom
-	glColor3f(0, 0, 1);
-	glVertex3f(-0.5, -0.5, -0.5);
-	glVertex3f(0.5, -0.5, -0.5);
-	glVertex3f(0.5, -0.5, 0.5);
-	glVertex3f(-0.5, -0.5, 0.5);
-
-	glEnd();
-}
-
-void View::update()
-{
-	glClearColor(0, 0, 0, 0);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-
-
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-
-	gluPerspective(90.0f, _screenWidth / (float)_screenHeight, _camNear, _camFar);
-	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-
-	gluLookAt(0, 5, 5,
-		0, 0, 0,
-		0, 1, 0);
-
-	//Models are drawn here..
-//#ifdef DEBUG
-	glPushMatrix();
-	//glTranslatef(posX, posY, posZ);
-	//glRotatef(rotation, 0, 1, 0);
-	drawCube();
-	glPopMatrix();
-//#endif // DEBUG
-
-
-
-	glEnable(GL_DEPTH_TEST);
-
-	glutSwapBuffers();
-}
-
-void View::reshape(int w, int h)
-{
-	_screenWidth = w;
-	_screenHeight = h;
-	glViewport(0, 0, w, h);
-}
-
-	GLuint _skybox[6] = { 0x8515, 0x8516, 0x8517, 0x8518, 0x8519, 0x851A};
+	GLuint _skybox[6] = { 0x8515, 0x8516, 0x8517, 0x8518, 0x8519, 0x851A };
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
@@ -199,4 +112,46 @@ void View::reshape(int w, int h)
 	// Restore enable bits and matrix
 	glPopAttrib();
 	glPopMatrix();
+}
+
+void View::update()
+{
+	glClearColor(0, 0, 0, 0);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	gluPerspective(90.0f, _screenWidth / (float)_screenHeight, _camNear, _camFar);
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+	gluLookAt(0, 5, 5,
+		0, 0, 0,
+		0, 1, 0);
+
+	//Models are drawn here..
+//#ifdef DEBUG
+	glPushMatrix();
+	//glTranslatef(posX, posY, posZ);
+	//glRotatef(rotation, 0, 1, 0);
+	drawCube();
+	glPopMatrix();
+//#endif // DEBUG
+
+
+
+	glEnable(GL_DEPTH_TEST);
+
+	glutSwapBuffers();
+}
+
+void View::reshape(int w, int h)
+{
+	_screenWidth = w;
+	_screenHeight = h;
+	glViewport(0, 0, w, h);
 }
