@@ -148,7 +148,6 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="Input.cpp" />
     <ClCompile Include="Lanes.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Model.cpp" />
