@@ -1,10 +1,17 @@
 #pragma once
 
+/*
+ * Class for saving Texture as object
+ * \id for binding texture to created texture in GL
+ * \width the width of the texture
+ * \height the height of the texture
+ * \bpp the amount of colorchannels in the texture
+ */
 class Texture
 {
 public:
 	Texture(int id, int width, int height, int bpp);
-private:
+
 	int _id;
 	int _width;
 	int _height;

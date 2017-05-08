@@ -158,6 +158,7 @@ void loadMaterialFile( const std::string &fileName, const std::string &dirName, 
 	}
 
 }
+// please no GameObject parameter !! :(
 DrawComponent * LoadComponent(const std::string &fileName)
 	{
 		DrawComponent * component = new DrawComponent();

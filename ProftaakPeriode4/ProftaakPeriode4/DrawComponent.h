@@ -4,12 +4,18 @@
 #include "Vec.h"
 #include "ObjectFactory.h"
 
+/*
+ * Class for drawing gameObjects
+ * Created by ObjectFactory
+ */
 class DrawComponent : Component
 {
 public:
 	DrawComponent();
 	~DrawComponent();
-	// todo implement draw
+
+	// drawing (deltaTime not implemented)
+	void Update(int deltaTime) override;
 
 	std::vector<Vec3f>	vertices;
 	std::vector<Vec3f>	normals;
