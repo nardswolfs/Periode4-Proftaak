@@ -1,6 +1,4 @@
 #include "Input.h"
-#include <iostream>
-
 /*
 * bool arrays, are read by components
 */
@@ -9,6 +7,7 @@ bool keyLeft = false;
 bool keyRight = false;
 bool keyUp = false;
 bool keyDown = false;
+Vec2i mousePos = Vec2i();
 
 /*
 * special key press detection
@@ -92,3 +91,20 @@ const bool * Keyboard::GetKeyboard()
 //	*left = keyLeft;
 //	*right = keyRight;
 //}
+
+/*
+* detects mouse movement and updates coordinates
+*/
+void Mouse::MoveMouse(int x, int y)
+{
+	mousePos = Vec2i(x, y);
+}
+
+/*
+* returns mouseposition vec2i as const pointer
+*/
+const Vec2i Mouse::GetMousePos()
+{
+	return mousePos;
+}
+

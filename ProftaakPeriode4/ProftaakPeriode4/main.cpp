@@ -29,25 +29,6 @@ void idle()
 	model.update();
 }
 
-void keyBoardDown(unsigned char key, int x, int y)
-{
-	Keyboard::KeyBoardDown(key, x, y);
-}
-
-void keyBoardUp(unsigned char key, int x, int y)
-{
-	Keyboard::KeyBoardUp(key, x, y);
-}
-
-void sKeyboardDown(int key, int x, int y)
-{
-	Keyboard::SKeyboardDown(key, x, y);
-}
-
-void sKeyboardUp(int key, int x, int y)
-{
-	Keyboard::SKeyboardUp(key, x, y);
-}
 
 int main(int argc, char* argv[]) {
 	glutInit(&argc, argv);
@@ -58,10 +39,11 @@ int main(int argc, char* argv[]) {
 	glutDisplayFunc(display);
 	glutReshapeFunc(reshape);
 	glutIdleFunc(idle);
-	glutKeyboardFunc(keyBoardDown);
-	glutKeyboardUpFunc(keyBoardUp);
-	glutSpecialFunc(sKeyboardDown);
-	glutSpecialUpFunc(sKeyboardUp);
+	glutKeyboardFunc(Keyboard::KeyBoardDown);
+	glutKeyboardUpFunc(Keyboard::KeyBoardUp);
+	glutSpecialFunc(Keyboard::SKeyboardDown);
+	glutSpecialUpFunc(Keyboard::SKeyboardUp);
+	glutPassiveMotionFunc(Mouse::MoveMouse);
 
 
 	glutMainLoop();
