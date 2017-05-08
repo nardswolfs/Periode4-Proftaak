@@ -7,5 +7,13 @@ Component::Component(ComponentID id)
 
 Component::~Component()
 {
-	// TODO destructor sutff
+	// TODO destructor stuff
+}
+
+void Component::Update(int deltaTime)
+{
+}
+
+void Component::LateUpdate(int deltaTime)
+{
 }
