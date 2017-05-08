@@ -151,7 +151,6 @@
     <ClCompile Include="Lanes.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Model.cpp" />
-    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Vec.cpp" />
     <ClCompile Include="View.cpp" />
   </ItemGroup>
@@ -161,7 +160,6 @@
     <ClInclude Include="Lanes.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Model.h" />
-    <ClInclude Include="Player.h" />
     <ClInclude Include="Vec.h" />
     <ClInclude Include="View.h" />
   </ItemGroup>
