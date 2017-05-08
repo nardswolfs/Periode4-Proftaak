@@ -8,19 +8,25 @@
 Model model;
 View view;
 
+// The displayFunc which will call the update of the view
+// This function should only be called by OpenGL and NOT manually
 void display()
 {
 	view.update();
 }
 
+// The reshapeFunc which will call the reshape of the view
+// This function should only be called by OpenGL and NOT manually
 void reshape(int w, int h)
 {
 	view.reshape(w, h);
 }
 
+// The idleFunc which will call the update of the model
+// This function should only be called by OpenGL and NOT manually
 void idle()
 {
-	
+	model.update();
 }
 
 void keyBoardDown(unsigned char key, int x, int y)
