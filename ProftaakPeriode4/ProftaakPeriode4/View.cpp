@@ -28,7 +28,6 @@ View::View()
 
 void drawCube()
 {
-	glColor3f(1, 0, 0);
 	GLuint _skybox[6] = { 0x8515, 0x8516, 0x8517, 0x8518, 0x8519, 0x851A };
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
