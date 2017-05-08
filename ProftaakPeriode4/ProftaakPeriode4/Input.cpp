@@ -1,0 +1,94 @@
+#include "Input.h"
+#include <iostream>
+
+/*
+* bool arrays, are read by components
+*/
+bool keyboard[255];
+bool keyLeft = false;
+bool keyRight = false;
+bool keyUp = false;
+bool keyDown = false;
+
+/*
+* special key press detection
+*/
+void Keyboard::SKeyboardDown(int key, int x, int y)
+{
+	switch (key)
+	{
+	case GLUT_KEY_LEFT:
+		keyLeft = true;
+		break;
+	case GLUT_KEY_RIGHT:
+		keyRight = true;
+		break;
+	case GLUT_KEY_UP:
+		keyUp = true;
+		break;
+	case GLUT_KEY_DOWN:
+		keyDown = true;
+		break;
+	default:
+		break;
+	}
+}
+
+/*
+* special key release detection
+*/
+void Keyboard::SKeyboardUp(int key, int x, int y)
+{
+	switch (key)
+	{
+	case GLUT_KEY_LEFT:
+		keyLeft = false;
+		break;
+	case GLUT_KEY_RIGHT:
+		keyRight = false;
+		break;
+	case GLUT_KEY_UP:
+		keyUp = false;
+		break;
+	case GLUT_KEY_DOWN:
+		keyDown = false;
+		break;
+	default:
+		break;
+	}
+}
+
+/*
+* normal key press detection
+*/
+void Keyboard::KeyBoardDown(unsigned char key, int x, int y)
+{
+	keyboard[key] = true;
+}
+
+/*
+* normal key release detection
+*/
+void Keyboard::KeyBoardUp(unsigned char key, int x, int y)
+{
+	keyboard[key] = false;
+}
+
+/*
+* returns keyboard array as contant pointer
+*/
+const bool * Keyboard::GetKeyboard()
+{
+	return keyboard;
+}
+
+/*
+* returns special keyboard array as contant pointer
+*/
+//void Keyboard::GetSKeyboard(bool* up, bool* down, bool* left, bool* right)
+//{
+//	*up = keyUp;
+//	*down = keyDown;
+//	*left = keyLeft;
+//	*right = keyRight;
+//}
