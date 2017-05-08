@@ -8,11 +8,11 @@
 Model model;
 View view;
 
-// The displayFunc which will call the update of the view
+// The displayFunc which will call the UpdateView of the view
 // This function should only be called by OpenGL and NOT manually
 void display()
 {
-	view.update();
+	view.UpdateView();
 }
 
 // The reshapeFunc which will call the reshape of the view
@@ -22,7 +22,7 @@ void reshape(int w, int h)
 	view.reshape(w, h);
 }
 
-// The idleFunc which will call the update of the model
+// The idleFunc which will call the UpdateView of the model
 // This function should only be called by OpenGL and NOT manually
 void idle()
 {

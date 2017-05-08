@@ -3,7 +3,7 @@
 // Enum which will indicate the functionality of a Component
 enum ComponentID
 {
-
+	DRAW_COMPONENT
 };
 
 class Component
