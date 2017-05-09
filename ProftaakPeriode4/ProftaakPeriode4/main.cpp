@@ -1,9 +1,11 @@
+#include "Component.h"
 #include "Model.h"
 #include "View.h"
 #include "Lanes.h"
 #include "Input.h"
 
 #include <GL\freeglut.h>
+#include "CameraComponent.h"
 
 Model model;
 View view;
@@ -31,10 +33,18 @@ void idle()
 
 
 int main(int argc, char* argv[]) {
-	glutInit(&argc, argv);
 
-	model = Model();
-	view = View(&model);
+	view = View(&model, argc, argv);
+
+	// Call the test object initialiser 
+	// For testing...
+	// can be removed if testing is not necessary
+	model.InitTestObjects();
+
+	// Call the regular model init
+	// this will initialise the game
+	// do NOT remove
+	model.Init();
 
 	glutDisplayFunc(display);
 	glutReshapeFunc(reshape);
