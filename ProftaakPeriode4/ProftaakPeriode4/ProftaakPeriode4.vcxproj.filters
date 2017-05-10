@@ -69,7 +69,7 @@
     </Filter>
     <Filter Include="Header Files\Json">
       <UniqueIdentifier>{6fb1ecfd-49ca-4aec-8583-b84930eb62f9}</UniqueIdentifier>
-	</Filter>
+    </Filter>
     <Filter Include="Source Files\Factory">
       <UniqueIdentifier>{490b45c6-5e90-46b4-a5dd-74bc97ce03e4}</UniqueIdentifier>
     </Filter>
@@ -113,11 +113,11 @@
     </ClCompile>
     <ClCompile Include="ScoreComponent.cpp">
       <Filter>Source Files\Score</Filter>
-      </ClCompile>
-    <ClCompile Include="LaneComponent.cpp">
-      <Filter>Source Files\Components</Filter>
     </ClCompile>
     <ClCompile Include="DrawComponent.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="LaneComponent.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
     <ClCompile Include="TextureLoader.cpp">
@@ -131,6 +131,9 @@
     </ClCompile>
     <ClCompile Include="CameraComponent.cpp">
       <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="LaneComponent.h">
+      <Filter>Header Files\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -163,9 +166,6 @@
     </ClInclude>
     <ClInclude Include="ScoreComponent.h">
       <Filter>Header Files\Score</Filter>
-    </ClInclude>
-    <ClInclude Include="LaneComponent.h">
-      <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="stb_image.h">
       <Filter>Header Files\Factory</Filter>
