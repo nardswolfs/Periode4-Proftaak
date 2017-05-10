@@ -6,7 +6,8 @@ class GameObject;
 enum ComponentID
 {
 	CAMERA_COMPONENT,
-	DRAW_COMPONENT
+	DRAW_COMPONENT,
+	LANE_COMPONENT
 };
 
 class Component
