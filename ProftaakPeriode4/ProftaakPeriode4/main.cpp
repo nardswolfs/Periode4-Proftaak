@@ -56,6 +56,7 @@ int main(int argc, char* argv[]) {
 	glutSpecialUpFunc(Keyboard::SKeyboardUp);
 	glutPassiveMotionFunc(Mouse::MoveMouse);
 
+
 	glutMainLoop();
 	return 0;
 }
