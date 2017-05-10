@@ -2,11 +2,6 @@
 
 #include "Component.h"
 
-enum ComponentID
-{
-	LANE_COMPONENT
-};
-
 class LaneComponent : public Component
 {
 public:
