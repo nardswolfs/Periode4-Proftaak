@@ -60,7 +60,7 @@ void Model::InitTestObjects()
 	testObject->AddComponent(drawComponent);
 
 	_gameObjects.push_back(testObject);
-}
+}	
 
 void Model::Init()
 {
