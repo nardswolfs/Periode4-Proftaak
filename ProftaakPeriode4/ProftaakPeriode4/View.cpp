@@ -1,157 +1,62 @@
 #include "View.h"
-#include <GL/freeglut.h>
+#include <GL\freeglut.h>
+#include "Component.h"
+#include "CameraComponent.h"
 
-View::View(Model * model)
+View::View(Model * model, int argc, char * argv[])
 {
-	_screenWidth = 1280;
-	_screenHeight = 720;
-
-	_camNear = 0.01f;
-	_camFar = 50.0f;
-
 	_modelPtr = model;
 
-	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
-	glutInitWindowSize(_screenWidth, _screenHeight);
+	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
+	glutInitWindowSize(1280, 720);
+	glutInit(&argc, argv);
 
 	glutCreateWindow("Cube_Runner");
 }
 
 View::View()
 {
-	_screenWidth = 1280;
-	_screenHeight = 720;
-
-	_camNear = 0.01f;
-	_camFar = 50.0f;
+	_modelPtr = nullptr;
 }
 
-void drawCube()
+void View::UpdateView()
 {
-	//TODO this isn't the final concept, make this code great again
-	GLuint _skybox[6] = { 0x8515, 0x8516, 0x8517, 0x8518, 0x8519, 0x851A };
-
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
-
-	// Store the current matrix
-	glPushMatrix();
-
-	// Reset and transform the matrix.
-	glLoadIdentity();
-	gluLookAt(
-		0, 0, 0,
-		0, 0, 0, // camera x, camera y, camera z
-		0, 1, 0);
-
-	// Enable/Disable features
-	glPushAttrib(GL_ENABLE_BIT);
-	glEnable(GL_TEXTURE_2D);
-	glDisable(GL_DEPTH_TEST);
-	glDisable(GL_LIGHTING);
-	glDisable(GL_BLEND);
-
-	// Just in case we set all vertices to white.
-	glColor4f(1, 1, 1, 1);
-
-	// Render the front quad
-	glBindTexture(GL_TEXTURE_2D, _skybox[0]);
-	glBegin(GL_QUADS);
-	glTexCoord2f(0, 0); glVertex3f(0.5f, -0.5f, -0.5f);
-	glTexCoord2f(1, 0); glVertex3f(-0.5f, -0.5f, -0.5f);
-	glTexCoord2f(1, 1); glVertex3f(-0.5f, 0.5f, -0.5f);
-	glTexCoord2f(0, 1); glVertex3f(0.5f, 0.5f, -0.5f);
-	glEnd();
-
-	// Render the left quad
-	glBindTexture(GL_TEXTURE_2D, _skybox[1]);
-	glBegin(GL_QUADS);
-	glTexCoord2f(0, 0); glVertex3f(0.5f, -0.5f, 0.5f);
-	glTexCoord2f(1, 0); glVertex3f(0.5f, -0.5f, -0.5f);
-	glTexCoord2f(1, 1); glVertex3f(0.5f, 0.5f, -0.5f);
-	glTexCoord2f(0, 1); glVertex3f(0.5f, 0.5f, 0.5f);
-	glEnd();
-
-	// Render the back quad
-	glBindTexture(GL_TEXTURE_2D, _skybox[2]);
-	glBegin(GL_QUADS);
-	glTexCoord2f(0, 0); glVertex3f(-0.5f, -0.5f, 0.5f);
-	glTexCoord2f(1, 0); glVertex3f(0.5f, -0.5f, 0.5f);
-	glTexCoord2f(1, 1); glVertex3f(0.5f, 0.5f, 0.5f);
-	glTexCoord2f(0, 1); glVertex3f(-0.5f, 0.5f, 0.5f);
-
-	glEnd();
-
-	// Render the right quad
-	glBindTexture(GL_TEXTURE_2D, _skybox[3]);
-	glBegin(GL_QUADS);
-	glTexCoord2f(0, 0); glVertex3f(-0.5f, -0.5f, -0.5f);
-	glTexCoord2f(1, 0); glVertex3f(-0.5f, -0.5f, 0.5f);
-	glTexCoord2f(1, 1); glVertex3f(-0.5f, 0.5f, 0.5f);
-	glTexCoord2f(0, 1); glVertex3f(-0.5f, 0.5f, -0.5f);
-	glEnd();
-
-	// Render the top quad
-	glBindTexture(GL_TEXTURE_2D, _skybox[4]);
-	glBegin(GL_QUADS);
-	glTexCoord2f(0, 1); glVertex3f(-0.5f, 0.5f, -0.5f);
-	glTexCoord2f(0, 0); glVertex3f(-0.5f, 0.5f, 0.5f);
-	glTexCoord2f(1, 0); glVertex3f(0.5f, 0.5f, 0.5f);
-	glTexCoord2f(1, 1); glVertex3f(0.5f, 0.5f, -0.5f);
-	glEnd();
-
-	// Render the bottom quad
-	glBindTexture(GL_TEXTURE_2D, _skybox[5]);
-	glBegin(GL_QUADS);
-	glTexCoord2f(0, 0); glVertex3f(-0.5f, -0.5f, -0.5f);
-	glTexCoord2f(0, 1); glVertex3f(-0.5f, -0.5f, 0.5f);
-	glTexCoord2f(1, 1); glVertex3f(0.5f, -0.5f, 0.5f);
-	glTexCoord2f(1, 0); glVertex3f(0.5f, -0.5f, -0.5f);
-	glEnd();
-
-	// Restore enable bits and matrix
-	glPopAttrib();
-	glPopMatrix();
-}
-
-void View::update()
-{
-	glClearColor(0, 0, 0, 0);
+	glClearColor(0, 0.5, 1, 0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-
-
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-
-	gluPerspective(90.0f, _screenWidth / (float)_screenHeight, _camNear, _camFar);
-	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-
-	gluLookAt(0, 5, 5,
-		0, 0, 0,
-		0, 1, 0);
-
-	//Models are drawn here..
-//#ifdef DEBUG
-	glPushMatrix();
-	//glTranslatef(posX, posY, posZ);
-	//glRotatef(rotation, 0, 1, 0);
-	drawCube();
-	glPopMatrix();
-//#endif // DEBUG
-
-
-
+	// Use the Camera GameObject to create a view
+	for (GameObject * gameObject : _modelPtr->_gameObjects)
+	{
+		CameraComponent * camera = dynamic_cast<CameraComponent *>(gameObject->GetComponent(CAMERA_COMPONENT));
+		if(camera != nullptr)
+		{
+			// Found camera, apply it's view and stop looping the list
+			camera->ApplyCamera();
+			break;
+		}
+	}
 	glEnable(GL_DEPTH_TEST);
+
+
+	// Draw all the gameObject
+	for(GameObject * gameObject : _modelPtr->_gameObjects)
+	{
+		gameObject->Draw(); 
+	}
 
 	glutSwapBuffers();
 }
 
 void View::reshape(int w, int h)
 {
-	_screenWidth = w;
-	_screenHeight = h;
-	glViewport(0, 0, w, h);
+	for (GameObject * gameObject : _modelPtr->_gameObjects)
+	{
+		CameraComponent * camera = dynamic_cast<CameraComponent *>(gameObject->GetComponent(CAMERA_COMPONENT));
+		if (camera != nullptr)
+		{
+			camera->_screenWidth = float(w);
+			camera->_screenHeight = float(h);
+			break;
+		}
+	}
 }

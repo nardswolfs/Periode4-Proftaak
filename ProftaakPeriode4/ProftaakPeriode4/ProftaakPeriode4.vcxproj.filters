@@ -43,6 +43,12 @@
     <Filter Include="Header Files\Components">
       <UniqueIdentifier>{e6682769-1283-4e33-960c-ff00774e6bc5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Factory">
+      <UniqueIdentifier>{490b45c6-5e90-46b4-a5dd-74bc97ce03e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Factory">
+      <UniqueIdentifier>{6b5dfa85-6916-413d-bab2-cd3cfda1f728}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -53,9 +59,6 @@
     </ClCompile>
     <ClCompile Include="View.cpp">
       <Filter>Source Files\View</Filter>
-    </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>Source Files\Control</Filter>
     </ClCompile>
     <ClCompile Include="Lanes.cpp">
       <Filter>Source Files\Model</Filter>
@@ -75,6 +78,21 @@
     <ClCompile Include="LaneComponent.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
+    <ClCompile Include="DrawComponent.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureLoader.cpp">
+      <Filter>Source Files\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectFactory.cpp">
+      <Filter>Source Files\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Source Files\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraComponent.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Model.h">
@@ -82,9 +100,6 @@
     </ClInclude>
     <ClInclude Include="View.h">
       <Filter>Header Files\View</Filter>
-    </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>Header Files\Control</Filter>
     </ClInclude>
     <ClInclude Include="Lanes.h">
       <Filter>Header Files\Model</Filter>
@@ -101,5 +116,40 @@
     <ClInclude Include="LaneComponent.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>Header Files\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawComponent.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureLoader.h">
+      <Filter>Header Files\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectFactory.h">
+      <Filter>Header Files\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraComponent.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Header Files\Control</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Button.psd">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Assets\GUI-Design.psd">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Assets\LifeBar.psd">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Assets\LifeFrame.psd">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Assets\LifeFrameSegment.psd">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
