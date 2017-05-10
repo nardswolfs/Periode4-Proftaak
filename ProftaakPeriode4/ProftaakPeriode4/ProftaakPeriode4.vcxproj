@@ -148,6 +148,7 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="LaneComponent.cpp" />
     <ClCompile Include="Lanes.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Model.cpp" />
@@ -157,6 +158,7 @@
   <ItemGroup>
     <ClInclude Include="Component.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="LaneComponent.h" />
     <ClInclude Include="Lanes.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Model.h" />

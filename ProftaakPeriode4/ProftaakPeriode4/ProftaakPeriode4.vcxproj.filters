@@ -72,6 +72,9 @@
     <ClCompile Include="Vec.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LaneComponent.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Model.h">
@@ -94,6 +97,9 @@
     </ClInclude>
     <ClInclude Include="Vec.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LaneComponent.h">
+      <Filter>Header Files\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
