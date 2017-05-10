@@ -1,10 +1,12 @@
 #include "Component.h"
 #include "Model.h"
 #include "View.h"
-#include "Lanes.h"
-#include "Input.h"
+#include "ScoreBoard.h"
+#include "ScoreComponent.h"
 
 #include <GL\freeglut.h>
+#include "Lanes.h"
+#include "Input.h"
 #include "CameraComponent.h"
 
 Model model;
@@ -12,7 +14,7 @@ View view;
 
 // The displayFunc which will call the UpdateView of the view
 // This function should only be called by OpenGL and NOT manually
-void display()
+void window()
 {
 	view.UpdateView();
 }
@@ -21,7 +23,7 @@ void display()
 // This function should only be called by OpenGL and NOT manually
 void reshape(int w, int h)
 {
-	view.reshape(w, h);
+    
 }
 
 // The idleFunc which will call the UpdateView of the model
@@ -35,7 +37,6 @@ void idle()
 int main(int argc, char* argv[]) {
 
 	view = View(&model, argc, argv);
-
 	// Call the test object initialiser 
 	// For testing...
 	// can be removed if testing is not necessary
@@ -46,14 +47,16 @@ int main(int argc, char* argv[]) {
 	// do NOT remove
 	model.Init();
 
-	glutDisplayFunc(display);
+	glutDisplayFunc(window);
 	glutReshapeFunc(reshape);
 	glutIdleFunc(idle);
+    /*
 	glutKeyboardFunc(Keyboard::KeyBoardDown);
 	glutKeyboardUpFunc(Keyboard::KeyBoardUp);
 	glutSpecialFunc(Keyboard::SKeyboardDown);
 	glutSpecialUpFunc(Keyboard::SKeyboardUp);
 	glutPassiveMotionFunc(Mouse::MoveMouse);
+    */
 
 
 	glutMainLoop();
