@@ -1,5 +1,4 @@
 # This file uses centimeters as units for non-parametric coordinates.
-
 mtllib lane.mtl
 g default
 v -2.956777 -0.383894 11.457215
