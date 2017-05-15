@@ -1,6 +1,7 @@
 # This file uses centimeters as units for non-parametric coordinates.
-w 2.5
+w 1.7
 l 8.7
+h 1
 
 mtllib lanepart.mtl
 g default
