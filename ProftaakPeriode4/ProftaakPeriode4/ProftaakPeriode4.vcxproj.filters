@@ -188,6 +188,9 @@
     <ClInclude Include="Vertex.h">
       <Filter>Header Files\Factory</Filter>
     </ClInclude>
+    <ClInclude Include="DrawComponent.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Button.psd">

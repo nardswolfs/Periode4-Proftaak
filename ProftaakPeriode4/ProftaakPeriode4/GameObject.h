@@ -86,6 +86,10 @@ public:
 	* The current rotation of the object
 	*/
 	Vec3f _rotation;
+	/*
+	 * The scale of this object
+	 */
+	Vec3f _scale;
 private:	
 	/*
 	 * Vector of every Component in this GameObject

@@ -52,14 +52,15 @@ void Model::InitTestObjects()
 	GameObject * camera = new GameObject();
 	CameraComponent * cameraComponent = new CameraComponent(1280.0f, 720.0f, 0.1f, 300.0f, 90.0f);
 	camera->AddComponent(cameraComponent);
+	
 
 	_gameObjects.push_back(camera);
 
-//	GameObject * testObject = new GameObject();
-//	DrawComponent * drawComponent = new MeshDrawComponent(LoadMeshFile("Assets//Models//TestCube//Cube.Cobj"));
-//	testObject->_position.z -= 3;
-//	testObject->AddComponent(drawComponent);
-//	_gameObjects.push_back(testObject);
+	GameObject * testObject = new GameObject();
+	DrawComponent * drawComponent = new MeshDrawComponent(LoadMeshFile("Assets//Models//Skybox//skybox.Cobj"));
+	testObject->_position.z -= 3;
+	testObject->AddComponent(drawComponent);
+	_gameObjects.push_back(testObject);
 
 	// laneGenerator
 	GameObject * laneGenerator = new GameObject();

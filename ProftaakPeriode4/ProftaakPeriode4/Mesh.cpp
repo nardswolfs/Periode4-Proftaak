@@ -102,7 +102,7 @@ void Mesh::Draw(Vec3f position, Vec3f rotation, float rotationAngle)
 	glPushMatrix();
 
 	glTranslatef(position.x, position.y, position.z);
-	glRotatef(rotationAngle, rotation.x, rotation.y, rotation.z);
+	glRotatef(rotationAngle, rotation.x, rotation.y, rotation.z); 
 
 	for(Group group : _groups)
 	{
