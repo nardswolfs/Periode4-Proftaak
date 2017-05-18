@@ -63,6 +63,7 @@ void Model::InitTestObjects()
 	GameObject * camera = new GameObject();
 	CameraComponent * cameraComponent = new CameraComponent(1280.0f, 720.0f, 0.1f, 300.0f, 90.0f);
 	camera->_position = { 3.65f, 3.3f, 0.0f };
+	camera->_rotation.x = 30.0f;
 	camera->AddComponent(cameraComponent);
 
 	_gameObjects.push_back(camera);
