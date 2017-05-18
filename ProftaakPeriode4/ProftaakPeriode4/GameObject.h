@@ -49,6 +49,16 @@ public:
 	*/
 	void SetRotation(Vec3f rotation);
 	/*
+	* Scale the object (add new values to current scale)
+	* @param scale to add to the current scale
+	*/
+	void Scale(Vec3f scale);
+	/*
+	* Set the current scale of the object
+	* @param scale as new scale
+	*/
+	void SetScale(Vec3f scale);
+	/*
 	 * Draw this GameObject using it's DrawComponent
 	 * if it has one
 	 */

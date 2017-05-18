@@ -14,7 +14,7 @@ MeshDrawComponent::~MeshDrawComponent()
 void MeshDrawComponent::Draw()
 {
 	if (_parent != nullptr) {
-		_mesh->Draw(_parent->_position, _parent->_rotation,0.0f);
+		_mesh->Draw(_parent->_position, _parent->_rotation,0.0f, _parent->_scale);
 		// todo implement rotationAngle!
 	}
 }

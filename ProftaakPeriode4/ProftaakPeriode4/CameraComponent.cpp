@@ -78,4 +78,6 @@ void CameraComponent::ApplyCamera() const
 
 	float pos[4] = { 2.0f, 5.0f, 5.0f, 0 };
 	glLightfv(GL_LIGHT0, GL_POSITION, pos);
+
+	glDisable(GL_LIGHTING);
 }

@@ -94,7 +94,7 @@ Mesh::Mesh(const IndexedMesh * indexedMesh)
 	}
 }
 
-void Mesh::Draw(Vec3f position, Vec3f rotation, float rotationAngle)
+void Mesh::Draw(Vec3f position, Vec3f rotation, float rotationAngle, Vec3f scale)
 {
 
 	glEnable(GL_TEXTURE_2D);
@@ -103,6 +103,7 @@ void Mesh::Draw(Vec3f position, Vec3f rotation, float rotationAngle)
 
 	glTranslatef(position.x, position.y, position.z);
 	glRotatef(rotationAngle, rotation.x, rotation.y, rotation.z); 
+	glScalef(scale.x, scale.y, scale.z);
 
 	for(Group group : _groups)
 	{

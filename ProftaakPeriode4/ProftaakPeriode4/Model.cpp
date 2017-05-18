@@ -62,9 +62,16 @@ void Model::InitTestObjects()
 
 	GameObject * camera = new GameObject();
 	CameraComponent * cameraComponent = new CameraComponent(1280.0f, 720.0f, 0.1f, 300.0f, 90.0f);
+	camera->_position = { 3.65f, 3.3f, 0.0f };
 	camera->AddComponent(cameraComponent);
 
 	_gameObjects.push_back(camera);
+
+	GameObject * skybox = new GameObject();
+	DrawComponent * skyboxDrawComponent = new MeshDrawComponent(LoadMeshFile("Assets//Models//Skybox//skybox.Cobj"));
+	skybox->_scale = { 7.0f, 7.0f, 7.0f };
+	skybox->AddComponent(skyboxDrawComponent);
+	_gameObjects.push_back(skybox);
 
 	GameObject * laneGenerator = new GameObject();
 	std::vector<Mesh*> meshes;
