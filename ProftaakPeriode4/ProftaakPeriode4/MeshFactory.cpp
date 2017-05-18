@@ -235,14 +235,14 @@ Mesh* LoadMeshFile(const std::string& fileName)
 				LoadMaterialFile(dirName + "/" + params[1], dirName, indexedMesh);
 			}else if(params[0] == "w")
 			{
-				indexedMesh->_width = std::stoi(params[1]);
+				indexedMesh->_width = std::stof(params[1]);
 			}else if(params[0] == "l")
 			{
-				indexedMesh->_length = std::stoi(params[1]);
+				indexedMesh->_length = std::stof(params[1]);
 			}
 			else if (params[0] == "h")
 			{
-				indexedMesh->_height = std::stoi(params[1]);
+				indexedMesh->_height = std::stof(params[1]);
 			}
 			else if (params[0] == "usemtl")
 			{
