@@ -55,6 +55,11 @@ void GameObject::SetScale(Vec3f scale)
 	_scale = Vec3f(scale);
 }
 
+void GameObject::SetLighting(bool lighting)
+{
+	_lighting = lighting;
+}
+
 void GameObject::Draw()
 {
 	// Return if there is no DrawComponent

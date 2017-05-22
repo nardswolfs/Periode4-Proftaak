@@ -22,14 +22,12 @@ Lane::Lane(int lengthAmount, std::vector<Mesh*> meshes)
 void Lane::Draw(float width)
 {
 	Vec3f rotation;
-	float rotationAngle = 0.0f;
-	Vec3f scale = Vec3f(1.0f, 1.0f, 1.0f);
 
 	for (int i = 0; i < _queue.size(); i++)
 	{
 		Mesh* drawObject = _queue[i];
 		Vec3f position = Vec3f(width, 0.0f, -(drawObject->_length * i) + _lengthMoved);
-		drawObject->Draw(position, rotation, rotationAngle, scale); // draw lane-mesh
+		drawObject->Draw(position, rotation); // draw lane-mesh
 
 		for (int o = 0; o < _obstacles.size(); o++)
 		{
@@ -40,7 +38,7 @@ void Lane::Draw(float width)
 					&& obstaclePosition.z <= (position.z + drawObject->_length) && obstaclePosition.z >= (position.z - drawObject->_length))
 			{
 				obstaclePosition.y = drawObject->_height; // set height of position to height of lane-mesh
-				_obstacles[o]->_mesh->Draw(obstaclePosition, rotation, rotationAngle, scale); // draw obstacle
+				_obstacles[o]->_mesh->Draw(obstaclePosition, rotation); // draw obstacle
 			}
 			
 		}

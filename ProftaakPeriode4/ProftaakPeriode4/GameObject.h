@@ -59,6 +59,10 @@ public:
 	*/
 	void SetScale(Vec3f scale);
 	/*
+	* Set lighting from object on or off
+	*/
+	void SetLighting(bool lighting);
+	/*
 	 * Draw this GameObject using it's DrawComponent
 	 * if it has one
 	 */
@@ -100,6 +104,10 @@ public:
 	 * The scale of this object
 	 */
 	Vec3f _scale;
+	/*
+	 * Lighting of object
+	 */
+	bool _lighting;
 private:	
 	/*
 	 * Vector of every Component in this GameObject
