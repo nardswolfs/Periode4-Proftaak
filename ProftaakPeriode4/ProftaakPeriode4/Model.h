@@ -20,6 +20,17 @@ public:
     // and ONLY ONCE
     void InitTestObjects();
 
+	/*
+	 * Initialise audio for game
+	 * Is static for not needing other data
+	 */
+	static void InitSound();
+
+	/*
+	 * Initialise the GUI elements
+	 */
+	void InitGUIElements();
+
     // Initialise the gameLogic
     // NOTE: should ONLY be called AFTER an OpenGL context has been created
     // and ONLY ONCE
@@ -31,6 +42,6 @@ public:
 	void play(int i);
 private:
 
-	// The last time a frame was rendered in milliseconds
-	float _lastTime;
+    // The last time a frame was rendered in milliseconds
+    float _lastTime;
 };
