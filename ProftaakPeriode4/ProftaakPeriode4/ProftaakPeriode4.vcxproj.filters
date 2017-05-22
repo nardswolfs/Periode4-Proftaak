@@ -159,9 +159,6 @@
     <ClCompile Include="CollisionComponent.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Lanes.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="View.h">
@@ -247,9 +244,6 @@
     </ClInclude>
     <ClInclude Include="CollisionComponent.h">
       <Filter>Header Files\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Lanes.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DrawComponent.cpp">
       <Filter>Source Files\Components</Filter>

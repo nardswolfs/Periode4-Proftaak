@@ -24,7 +24,7 @@ IndexedMesh::~IndexedMesh()
 
 void IndexedMesh::Draw(Vec3f position, Vec3f rotation, Vec3f scale, bool lighting)
 {
-	if (lighting == false) glDisable(GL_LIGHTING);
+	if (!lighting) glDisable(GL_LIGHTING);
 	glPushMatrix();
 
 	glTranslatef(position.x, position.y, position.z);
@@ -52,9 +52,8 @@ void IndexedMesh::Draw(Vec3f position, Vec3f rotation, Vec3f scale, bool lightin
 		glEnd();
 		glDisable(GL_TEXTURE_2D);
 	}
-
-
 	glPopMatrix();
+	if (!lighting) glEnable(GL_LIGHTING);
 }
 
 Mesh::Group::Group(MaterialInfo* material)
@@ -99,7 +98,7 @@ Mesh::Mesh(const IndexedMesh * indexedMesh)
 void Mesh::Draw(Vec3f position, Vec3f rotation, Vec3f scale, bool lighting)
 {
 	glEnable(GL_TEXTURE_2D);
-	if (lighting == false) { glDisable(GL_LIGHTING); }
+	if (!lighting) { glDisable(GL_LIGHTING); }
 
 	glPushMatrix();
 
@@ -132,6 +131,6 @@ void Mesh::Draw(Vec3f position, Vec3f rotation, Vec3f scale, bool lighting)
 	glDisable(GL_TEXTURE_2D);
 
 	glPopMatrix();
-	if (lighting == false) glEnable(GL_LIGHTING);
+	if (!lighting) glEnable(GL_LIGHTING);
 }
 
