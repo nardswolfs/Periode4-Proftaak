@@ -16,7 +16,7 @@ public:
 	* Constructor for creating object
 	* @param _vertices as Vector with Matrix3GLf
 	*/
-	GameObject();
+	explicit GameObject(std::vector<GameObject *> * gameObjects);
 	/*
 	* Update function will call the update function
 	* of every Component in this GameObject
@@ -66,7 +66,7 @@ public:
 	 * Draw this GameObject using it's DrawComponent
 	 * if it has one
 	 */
-	void Draw();
+	void Draw() const;
 	/*
 	* Get the Component based on the parameter id
 	* if it is present
@@ -100,6 +100,10 @@ public:
 	* The current rotation of the object
 	*/
 	Vec3f _rotation;
+    /*
+     * pointer to the vector containing all the gameObjects
+     */
+    std::vector<GameObject *>* _gameObjects;
 	/*
 	 * The scale of this object
 	 */
@@ -113,5 +117,4 @@ private:
 	 * Vector of every Component in this GameObject
 	 */
 	std::vector<Component *> _components;
-	
 };
