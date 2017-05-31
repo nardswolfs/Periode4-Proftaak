@@ -20,7 +20,7 @@ LaneGeneratorComponent::LaneGeneratorComponent(int laneAmount, int laneSize, std
 						  // Testing
 	mesh = LoadMeshFile("Assets//Models//TestCube//Cube.Cobj");
 
-	_spaceBetween = 2.0f;
+	_spaceBetween = 1.0f;
 
 	for (int i = 0; i < laneAmount; i++)
 	{

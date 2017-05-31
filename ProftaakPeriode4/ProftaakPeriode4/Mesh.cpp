@@ -97,7 +97,6 @@ Mesh::Mesh(const IndexedMesh * indexedMesh)
 
 void Mesh::Draw(Vec3f position, Vec3f rotation, Vec3f scale, bool lighting)
 {
-	glEnable(GL_TEXTURE_2D);
 	if (!lighting) { glDisable(GL_LIGHTING); }
 
 	glPushMatrix();
@@ -110,25 +109,34 @@ void Mesh::Draw(Vec3f position, Vec3f rotation, Vec3f scale, bool lighting)
 
 	for(Group group : _groups)
 	{
+		//bool alpha = group._material->_alpha.alpha != 0.0f && group._material->_alpha.alpha != 1.0f;
+
+		//if (alpha)
+		//{
+		//	AlphaBlending::beginAlphaBlending();
+		//}
+		
+		glColor4fv(group._material->_alpha.v);
 		glEnableClientState(GL_VERTEX_ARRAY);
 		glEnableClientState(GL_NORMAL_ARRAY);
 		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-
 		glBindTexture(GL_TEXTURE_2D, group._material->_texture->_id);
 
 		glVertexPointer(3, GL_FLOAT, sizeof(float) * 8, ((float*)group._vertices.data()));
 		glNormalPointer(GL_FLOAT, sizeof(float) * 8, ((float*)group._vertices.data()) + 5);
 		glTexCoordPointer(2, GL_FLOAT, sizeof(float) * 8, ((float*)group._vertices.data()) + 3);
-
+		
 		glDrawArrays(GL_TRIANGLES, 0, GLsizei(group._vertices.size()));
 
 		glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 		glDisableClientState(GL_NORMAL_ARRAY);
 		glDisableClientState(GL_VERTEX_ARRAY);
 
+		//if (alpha)
+		//{
+			//AlphaBlending::endAlphaBlending();
+		//}
 	}
-
-	glDisable(GL_TEXTURE_2D);
 
 	glPopMatrix();
 	if (!lighting) glEnable(GL_LIGHTING);

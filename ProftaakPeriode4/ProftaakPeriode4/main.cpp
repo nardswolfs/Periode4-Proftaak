@@ -16,7 +16,7 @@ unsigned int fps = 20;
 void onExit()
 {
     //TODO: add here the methodes that you want to be called on exit
-    model.scoreBoard.saveScore();
+    //model.scoreBoard.saveScore();
 }
 
 // The displayFunc which will call the UpdateView of the view

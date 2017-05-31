@@ -73,7 +73,7 @@ void Model::InitTestObjects()
 
 	GameObject * skybox = new GameObject(&_gameObjects);
 	DrawComponent * skyboxDrawComponent = new MeshDrawComponent(LoadMeshFile("Assets//Models//Skybox//skybox.Cobj"));
-	skybox->_scale = { 25.0f, 25.0f, 25.0f };
+	skybox->_scale = { 45.0f, 45.0f, 45.0f };
 	skybox->_lighting = false;
 	skybox->AddComponent(skyboxDrawComponent);
 	_gameObjects.push_back(skybox);
