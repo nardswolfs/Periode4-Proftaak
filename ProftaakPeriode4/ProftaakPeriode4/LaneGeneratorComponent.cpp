@@ -38,11 +38,9 @@ LaneGeneratorComponent::LaneGeneratorComponent(int laneAmount, int laneSize, std
 	_player->AddComponent(new CollisionComponent(Hitbox({ 2,2,2 })));
 	_player->AddComponent(new MeshDrawComponent(LoadMeshFile("Assets//Models//TestCube//Cube.Cobj"))); // todo move out of scope
 	LaneObstacleComponent * lanePlayer = new LaneObstacleComponent(1);
-	lanePlayer->_speed = 0.0f;
+	lanePlayer->_speed = nullptr;
 	_player->AddComponent(lanePlayer);
 	_obstacles.push_back(_player);
-	
-
 }
 
 LaneGeneratorComponent::~LaneGeneratorComponent()
@@ -61,8 +59,6 @@ void LaneGeneratorComponent::Draw()
 	// Draw the obstacles
 	for (GameObject * obstacle : _obstacles) 
 		obstacle->Draw();
-	
-	
 }
 
 void LaneGeneratorComponent::Update(float deltaTime)
@@ -133,5 +129,3 @@ void LaneGeneratorComponent::Update(float deltaTime)
 //		-100.0f};
 //	_obstacles.push_back(obstacle);
 //}
-
-
