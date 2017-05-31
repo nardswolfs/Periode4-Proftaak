@@ -195,6 +195,9 @@
     <ClCompile Include="LaneObstacleGenerator.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
+    <ClCompile Include="VisionComponent.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="View.h">
@@ -306,6 +309,9 @@
       <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="ObstaclePatterns.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="VisionComponent.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
   </ItemGroup>

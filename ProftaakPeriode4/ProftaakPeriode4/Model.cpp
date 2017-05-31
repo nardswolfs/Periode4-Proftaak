@@ -2,6 +2,7 @@
 #include <GL\freeglut.h>
 #include "DrawComponent.h"
 #include "CameraComponent.h"
+#include "VisionComponent.h"
 #include <iostream>
 #include "MeshDrawComponent.h"
 #include "MeshFactory.h"
@@ -170,7 +171,7 @@ void Model::Init()
 
 
 	int laneAmount = 3;
-	PlayerComponent * playerComponent = new PlayerComponent(laneAmount/2, laneAmount, lifebar, diededImage, this,false);
+	PlayerComponent * playerComponent = new PlayerComponent(laneAmount/2, laneAmount, lifebar, diededImage, this,true);
 
 	GameObject * laneGenerator = new GameObject(&_gameObjects);
 	LaneGeneratorComponent * laneDrawComponent = new LaneGeneratorComponent(3, 20, meshes, playerComponent);
