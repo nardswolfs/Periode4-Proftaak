@@ -1,14 +1,13 @@
 ﻿#include "GameObject.h"
 #include "DrawComponent.h"
 
-
-GameObject::GameObject(std::vector<GameObject *> * gameObjects)
+GameObject::GameObject(std::vector<GameObject *> * gameObjects, Vec3f position, Vec3f rotation, Vec3f scale)
 {
 	_lighting = true;
-	_position = Vec3f();
-	_rotation = Vec3f();
+	_position = position;
+	_rotation = rotation;
     _gameObjects = gameObjects;
-	_scale = { 1.0f, 1.0f, 1.0f };
+	_scale = scale;
 }
 
 void GameObject::Update(float deltaTime)

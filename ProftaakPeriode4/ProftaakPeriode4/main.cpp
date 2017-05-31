@@ -11,12 +11,22 @@ Model model;
 View view;
 unsigned int fps = 20;
 
-
 // Function that will be called on exiting the game
 void onExit()
 {
     //TODO: add here the methodes that you want to be called on exit
-    //model.scoreBoard.saveScore();
+    ScoreBoardComponent * tempBoard;
+    
+    for (auto m : model._gameObjects)
+    {
+        tempBoard = static_cast<ScoreBoardComponent *>(m->GetComponent(SCOREBOARD_COMPONENT));
+        if (tempBoard != nullptr) {
+            tempBoard->SaveScore();
+            break;
+        }        
+    }
+
+    delete tempBoard;
 }
 
 // The displayFunc which will call the UpdateView of the view
@@ -45,16 +55,11 @@ int main(int argc, char* argv[])
 {
 	view = View(&model, argc, argv);
 
-	// Call the test object initialiser 
-	// For testing...
-	// can be removed if testing is not necessary
-	model.InitTestObjects();
-
 	// Call the regular model init
 	// this will initialise the game
 	// do NOT remove
 	model.Init();
-
+	model.InitSound();
     atexit(onExit);
 	glutDisplayFunc(window);
 	glutReshapeFunc(reshape);
