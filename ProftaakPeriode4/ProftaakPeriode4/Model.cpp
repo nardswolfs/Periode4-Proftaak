@@ -22,10 +22,10 @@
 
 Model::Model()
 {
+	_meshIndex = 0;
 	_gameOverTime = 0.0f;
 	_lastTime = 0;
 	_gameOver = false;
-	
 }
 
 void Model::update()
@@ -90,6 +90,7 @@ void Model::InitSound()
 
 void Model::Init()
 {
+	_meshIndex = 0;
 	_lastTime = 0;
 
 	Reset();
@@ -150,28 +151,38 @@ void Model::Init()
 	_gameObjects.push_back(camera);
 
 	// Create and add the skybox GameObject
+	if (!MeshHasNext())
+		_loadedMeshes.push_back(LoadMeshFile("Assets//Models//Skybox//skybox.Cobj"));
+
 	GameObject * skybox = new GameObject(&_gameObjects);
-	DrawComponent * skyboxDrawComponent = new MeshDrawComponent(LoadMeshFile("Assets//Models//Skybox//skybox.Cobj"));
+	DrawComponent * skyboxDrawComponent = new MeshDrawComponent(GetNextMesh());
 	skybox->_scale = { 25.0f, 25.0f, 25.0f };
 	skybox->_lighting = false;
 	skybox->AddComponent(skyboxDrawComponent);
-	_gameObjects.push_back(skybox);
 	
+	_gameObjects.push_back(skybox);
+
 	// Create and add the Mars GameObject
+	if (!MeshHasNext())
+		_loadedMeshes.push_back(LoadMeshFile("Assets//Models//Mars//planet.Cobj"));
+
 	GameObject * mars = new GameObject(&_gameObjects);
-	mars->AddComponent(new MeshDrawComponent(LoadMeshFile("Assets//Models//Mars//planet.Cobj")));
+	mars->AddComponent(new MeshDrawComponent(GetNextMesh()));
 	mars->AddComponent(new RotateComponent({ 0.0f,1.0f,0.0f }));
 	mars->_position = { -25.0f,5.0F,-75.0F};
 
 	_gameObjects.push_back(mars);
 
 	// Create and add the player GameObject
+	if (!MeshHasNext())
+		_loadedMeshes.push_back(LoadMeshFile("Assets//Models//silver-hawk-next//shawk13.Cobj"));
+
 	int laneAmount = 3;
 	GameObject * player = new GameObject(nullptr, { 0.0f,0.0f,-1.0f });
 	PlayerComponent * playerComponent = new PlayerComponent(laneAmount / 2, laneAmount, lifebar, diededImage, this, false);
 	player->AddComponent(playerComponent);
 	player->AddComponent(new CollisionComponent(Hitbox({ 1,1,1 }))); // Hitbox
-	player->AddComponent(new MeshDrawComponent(LoadMeshFile("Assets//Models//silver-hawk-next//shawk13.Cobj"))); // todo move out of scope
+	player->AddComponent(new MeshDrawComponent(GetNextMesh())); // todo move out of scope
 	LaneObstacleComponent * lanePlayer = new LaneObstacleComponent(laneAmount/2);
 	lanePlayer->_speed = nullptr;
 	player->_position.y = 2.0f;
@@ -181,10 +192,13 @@ void Model::Init()
 	// Create and add the LaneGenerator GameObject
 	float speed = 10.0f;
 	std::vector<Mesh*> meshes;
-	meshes.push_back(LoadMeshFile("Assets//Models//Lane//lanePart.Cobj"));
+	if (!MeshHasNext())
+		_loadedMeshes.push_back(LoadMeshFile("Assets//Models//Lane//lanePart.Cobj"));
+	meshes.push_back(GetNextMesh());
+	if (!MeshHasNext())
+		_loadedMeshes.push_back(LoadMeshFile("Assets//Models//Asteroid//Asteroid_LemoineM.Cobj"));
 	std::vector<Mesh*> obstacles;
-	obstacles.push_back(LoadMeshFile("Assets//Models//Asteroid//Asteroid_LemoineM.Cobj"));
-
+	obstacles.push_back(GetNextMesh());
 
 	GameObject * laneGenerator = new GameObject(&_gameObjects);
 	LaneGeneratorComponent * laneDrawComponent = new LaneGeneratorComponent(3, 20, 2.0f, meshes, player);
@@ -215,6 +229,24 @@ void Model::Init()
 
     _gameObjects.push_back(scoreObject);
 
+}
+
+Mesh* Model::GetNextMesh()
+{
+	if(_loadedMeshes.size() > _meshIndex)
+	{
+		Mesh * mesh = _loadedMeshes[_meshIndex];
+		_meshIndex += 1;
+		return mesh;
+	} else
+	{
+		return nullptr;
+	}
+}
+
+bool Model::MeshHasNext() const
+{
+	return _loadedMeshes.size() > _meshIndex + 1;
 }
 
 void Model::Reset()
