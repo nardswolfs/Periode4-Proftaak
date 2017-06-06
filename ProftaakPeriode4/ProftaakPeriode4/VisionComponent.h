@@ -83,7 +83,7 @@ private:
 	* terminate thread for terminating the thread and closing opencv windows if openend
 	*/
 	std::thread _visionThread;
-	bool _terminateThread = false;
+	bool _terminateThead = false;
 
 	/*
 	* opencv data
@@ -92,6 +92,6 @@ private:
 	cv::Mat _src_gray;
 	const int _thresh = 50;
 	const int max_thresh = 255;
-	const int _radius = 10;
+	const float _radius = 10;
 };
 
