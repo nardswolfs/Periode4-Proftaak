@@ -12,6 +12,8 @@
 #include "GUIComponent.h"
 #include "bass.h"
 #include "Sound.h"
+#include "PowerUpComponent.h"
+
 
 //for testing purposes only, comment/delete when finished
 #include "Text.h"
@@ -138,7 +140,20 @@ void Model::Init()
 
 	_guiObjects.push_back(guiOb);
 
-	// Create every other GameObject
+    for (auto go : _gameObjects)
+    {
+        auto tempScore = static_cast<ScoreComponent*>(go->GetComponent(SCORE_COMPONENT));
+        if (tempScore == nullptr) continue;
+
+        tempScore->_scoreText = scoreText;
+        tempScore->_highscoreText = highscore;
+        break;
+    }
+
+	// Test GameObjects
+	// TODO: remove
+
+	_lastTime = 0;
 
 	// Create and add the camera GameObject
 	GameObject * camera = new GameObject(&_gameObjects);
@@ -207,8 +222,6 @@ void Model::Init()
 		_loadedMeshes.push_back(LoadMeshFile("Assets//Models//Transporter//transporter.Cobj"));
 	obstaclesNormal.push_back(GetNextMesh());
 
-	
-
 	GameObject * laneGenerator = new GameObject(&_gameObjects);
 	LaneGeneratorComponent * laneDrawComponent = new LaneGeneratorComponent(3, 20, 1.5f, meshes, player);
 
@@ -254,6 +267,14 @@ void Model::Init()
 
     _gameObjects.push_back(scoreObject);
 
+    GameObject * powerUps = new GameObject(&_gameObjects);
+
+	PowerUpComponent * pu = new PowerUpComponent();
+	pu->SetParent(powerUps);
+	pu->Init();
+	powerUps->AddComponent(pu);
+
+    _gameObjects.push_back(powerUps);
 }
 
 Mesh* Model::GetNextMesh()
