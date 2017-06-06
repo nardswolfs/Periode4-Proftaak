@@ -178,13 +178,12 @@ void Model::Init()
 
 	int laneAmount = 3;
 	GameObject * player = new GameObject(nullptr, { 0.0f,0.0f,-1.0f });
-	PlayerComponent * playerComponent = new PlayerComponent(
-		laneAmount / 2, laneAmount, lifebar, diededImage, this, new Sound("Assets/Sounds/Thud.wav", false), new Sound("Assets/Sounds/Death.wav", false),false);
+
+	PlayerComponent * playerComponent = new PlayerComponent(laneAmount / 2, laneAmount, lifebar, diededImage, this, new Sound("Assets/Sounds/Thud.wav", false), new Sound("Assets/Sounds/Death.wav", false),false);
 	player->AddComponent(playerComponent);
 	player->AddComponent(new CollisionComponent(Hitbox({ 1,1,1 }))); // Hitbox
 	player->AddComponent(new MeshDrawComponent(GetNextMesh())); // todo move out of scope
 	LaneObstacleComponent * lanePlayer = new LaneObstacleComponent(laneAmount/2);
-	lanePlayer->_speed = nullptr;
 	player->_position.y = 2.0f;
 	player->_position.z = -10.0f;
 	player->AddComponent(lanePlayer);
@@ -192,19 +191,45 @@ void Model::Init()
 	// Create and add the LaneGenerator GameObject
 	float speed = 10.0f;
 	std::vector<Mesh*> meshes;
+
 	if (!MeshHasNext())
 		_loadedMeshes.push_back(LoadMeshFile("Assets//Models//Lane//lanePart.Cobj"));
 	meshes.push_back(GetNextMesh());
+
+	std::vector<Mesh*> obstaclesAsteroid;
 	if (!MeshHasNext())
 		_loadedMeshes.push_back(LoadMeshFile("Assets//Models//Asteroid//Asteroid_LemoineM.Cobj"));
-	std::vector<Mesh*> obstacles;
-	obstacles.push_back(GetNextMesh());
+	obstaclesAsteroid.push_back(GetNextMesh());
+
+
+	std::vector<Mesh*> obstaclesNormal;
+	if (!MeshHasNext())
+		_loadedMeshes.push_back(LoadMeshFile("Assets//Models//Transporter//transporter.Cobj"));
+	obstaclesNormal.push_back(GetNextMesh());
+
+	
 
 	GameObject * laneGenerator = new GameObject(&_gameObjects);
 	LaneGeneratorComponent * laneDrawComponent = new LaneGeneratorComponent(3, 20, 2.0f, meshes, player);
-	LaneObstacleGenerator * lane_obstacle_generator = new LaneObstacleGenerator(obstacles, &laneDrawComponent->_speed);
+	
 
 	laneGenerator->AddComponent(laneDrawComponent);
+
+
+//	std::vector<GameObject*> obstacles;
+//	GameObject * game_object = new GameObject(&_gameObjects);
+//	game_object->AddComponent(new MeshDrawComponent(LoadMeshFile("Assets//Models//Asteroid//Asteroid_LemoineM.Cobj")));
+//	game_object->AddComponent(new CollisionComponent(Hitbox({ 1.0f,1.0f,1.0f }), false));
+//	obstacles.push_back(game_object);
+//
+//	GameObject * game_object2 = new GameObject(laneGenerator->_gameObjects);
+//	game_object2->AddComponent(new MeshDrawComponent(LoadMeshFile("Assets//Models//TestCube//Cube.Cobj")));
+//	game_object2->AddComponent(new CollisionComponent(Hitbox({ 1.0f,1.0f,1.0f }), false));
+//	obstacles.push_back(game_object2);
+
+
+	LaneObstacleGenerator * lane_obstacle_generator = new LaneObstacleGenerator(obstaclesAsteroid, obstaclesNormal);
+
 	laneGenerator->AddComponent(lane_obstacle_generator);
 	_gameObjects.push_back(laneGenerator);
 
