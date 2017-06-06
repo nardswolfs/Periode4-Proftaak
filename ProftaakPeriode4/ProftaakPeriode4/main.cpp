@@ -16,16 +16,19 @@ unsigned int fps = 20;
 // Function that will be called on exiting the game
 void onExit()
 {
-	for (auto m : model._gameObjects)
+    //TODO: add here the methodes that you want to be called on exit
+    ScoreBoardComponent * tempBoard;
+    
+    for (auto m : model._gameObjects)
     {
-        ScoreBoardComponent * tempBoard = static_cast<ScoreBoardComponent *>(m->GetComponent(SCOREBOARD_COMPONENT));
+        tempBoard = static_cast<ScoreBoardComponent *>(m->GetComponent(SCOREBOARD_COMPONENT));
         if (tempBoard != nullptr) {
             tempBoard->SaveScore();
-			delete tempBoard;
-        	break;
+            break;
         }        
     }
 
+    delete tempBoard;
 
 
 	for (GameObject* g : model._gameObjects)
@@ -44,8 +47,6 @@ void onExit()
 			}
 		}
 	}
-
-	BASS_Free();
 }
 
 // The displayFunc which will call the UpdateView of the view

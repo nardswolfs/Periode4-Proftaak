@@ -143,7 +143,7 @@ void Model::Init()
 	// Create and add the camera GameObject
 	GameObject * camera = new GameObject(&_gameObjects);
 	CameraComponent * cameraComponent = new CameraComponent(1280.0f, 720.0f, 0.1f, 300.0f, 90.0f, false);
-	camera->_position = { 3.65f, 3.3f, -8.0f};
+	camera->_position = { 4.7f, 3.7f, -8.0f };
 	camera->_rotation.x = 30.0f;
 	camera->AddComponent(cameraComponent);
 
@@ -210,8 +210,8 @@ void Model::Init()
 	
 
 	GameObject * laneGenerator = new GameObject(&_gameObjects);
-	LaneGeneratorComponent * laneDrawComponent = new LaneGeneratorComponent(3, 20, 2.0f, meshes, player);
-	
+	LaneGeneratorComponent * laneDrawComponent = new LaneGeneratorComponent(3, 20, 1.5f, meshes, player);
+
 
 	laneGenerator->AddComponent(laneDrawComponent);
 
